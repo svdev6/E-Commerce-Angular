@@ -1,0 +1,25 @@
+<div class="w-full h-full flex flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+	<a [routerLink]="['/product', product.id]">
+		<div>
+				<img class="p-8 rounded-t-lg"
+						 [src]="product.images[0]"
+						 width="640"
+						 height="640"
+						 alt="product image"
+				/>
+		</div>
+		<div class="px-5 grow">
+				<h5 class="product-title text-md font-semibold tracking-tight text-gray-900 dark:text-white">{{ product.title | uppercase | reverse }}</h5>
+			<div class="text-white text-xs flex space-x-2 my-2">
+				<p>Fecha de carga:</p>
+				<span>{{product.updatedAt | timeAgo }}</span>
+			</div>
+		</div>
+	</a>
+			<div class="flex items-center justify-between px-4 py-2">
+				<span class="text-xl font-bold text-gray-900 dark:text-white">{{product.price | currency:'$': 'symbol': '1.0' }}</span>
+				<button
+					(click)="addToCartHandler(product)"
+					class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+			</div>
+</div>

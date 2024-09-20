@@ -1,0 +1,9 @@
+.product-title {
+	height: 3em; /* Ajusta según el tamaño de fuente para que sean dos líneas */
+	line-height: 1.5em; /* Ajusta según el tamaño de fuente */
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}

@@ -1,0 +1,33 @@
+<main class="flex">
+	<aside class="min-w-40 border-r-2">
+		<h2 class="font-bold text-blue-900 text-xl">Categorías</h2>
+		<ul>
+			<a routerLink="/">
+				<li
+					class="cursor-pointer hover:bg-blue-100 hover:text-blue-900 px-2 rounded transition-colors my-2 "
+				>
+					Todas
+				</li>
+			</a>
+			@for (category of categories(); track category.id){
+				<a
+						routerLink="/"
+						[queryParams]="{ categoryId: category.id }"
+				>
+					<li
+						class="cursor-pointer hover:bg-blue-100 hover:text-blue-900 px-2 rounded transition-colors my-2 "
+					>
+							{{category.name}}
+					</li>
+				</a>
+			}
+		</ul>
+	</aside>
+	<section class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 mx-4">
+		@for (product of products(); track product.id) {
+			<app-product
+				[product]="product"
+			/>
+		}
+	</section>
+</main>
